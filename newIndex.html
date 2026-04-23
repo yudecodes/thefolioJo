@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:#2e7d32; /* GREEN BACKGROUND */
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+body.dark{
+  background:#121212;
+  color:white;
+}
+
+.loader-container{
+  text-align:center;
+  color:white;
+}
+
+/* LOGO AS LOADER */
+.loader-logo{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:0 auto 25px;
+  animation:float 3s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-20px);}
+}
+
+h1{
+  font-size:42px;
+}
+
+/* DARK MODE TOGGLE */
+.dark-toggle{
+  position:absolute;
+  top:20px;
+  right:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="dark-toggle">
+  <input type="checkbox" id="darkModeToggle">
+  <label for="darkModeToggle"></label>
+</div>
+
+<div class="loader-container">
+  <img src="assets/logo.jpg" alt="Logo" class="loader-logo">
+  <h1>Environmental Advocacy</h1>
+</div>
+
+<script>
+const toggle = document.getElementById("darkModeToggle");
+
+if (localStorage.getItem("darkMode") === "enabled") {
+  document.body.classList.add("dark");
+  toggle.checked = true;
+}
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "darkMode",
+    document.body.classList.contains("dark") ? "enabled" : "disabled"
+  );
+});
+
+setTimeout(() => {
+  window.location.href = "home.html";
+}, 3000);
+</script>
+
+</body>
+</html>

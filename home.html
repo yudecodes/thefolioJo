@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home | Environmental Advocacy</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+  }
+
+  h1 { font-size: 36px; }
+  h2 { font-size: 28px; }
+  p, li, nav a { font-size: 20px; }
+  footer p { font-size: 18px; }
+
+  .hero img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* Center the header and nav */
+  header {
+    text-align: center; /* Center everything inside header */
+  }
+
+  header nav {
+    margin-top: 10px; /* Spacing between title and links */
+  }
+
+  header nav a {
+    display: inline-block; /* Keep links in a row */
+    margin: 0 15px; /* Space between links */
+  }
+
+  /* ENHANCED FOOTER (NO QUICK LINKS, NO ABOUT SECTION) */
+  footer {
+    background: #2e7d32;
+    color: white;
+    padding: 30px 20px;
+    margin-top: 40px;
+  }
+
+  .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .footer-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 15px;
+  }
+
+  /* NEW HERO EXTRA STYLING */
+  .hero-extra h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .hero-extra p {
+    font-size: 20px;
+  }
+  .hero-extra .card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .hero-extra .card p {
+    font-size: 18px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="dark-toggle">
+  <input type="checkbox" id="darkModeToggle">
+  <label for="darkModeToggle" class="toggle-label"></label>
+</div>
+
+<header>
+  <h1>Environmental Advocacy Portfolio</h1>
+  <nav>
+    <a href="home.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <h2>Protecting Nature for Future Generations</h2>
+    <p>This portfolio showcases my passion for environmental advocacy.</p>
+    <ul>
+      <li>Community action</li>
+      <li>Sustainability</li>
+      <li>Environmental education</li>
+    </ul>
+
+    <!-- NEW ENGAGING HERO CONTENT -->
+    <div class="hero-extra" style="text-align:center; margin-top:30px;">
+      <h2>Why Environmental Advocacy Matters</h2>
+      <p>Every small action counts. Join the movement to:</p>
+      <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:20px;">
+        <div class="card" style="background:#81c784; color:white; padding:20px; border-radius:10px; width:200px;">
+          <h3>🌱 Plant Trees</h3>
+          <p>Help restore forests and green our cities.</p>
+        </div>
+        <div class="card" style="background:#4caf50; color:white; padding:20px; border-radius:10px; width:200px;">
+          <h3>💧 Save Water</h3>
+          <p>Conserve water to protect life and ecosystems.</p>
+        </div>
+        <div class="card" style="background:#388e3c; color:white; padding:20px; border-radius:10px; width:200px;">
+          <h3>♻️ Reduce Waste</h3>
+          <p>Recycle and reduce to leave a cleaner planet.</p>
+        </div>
+      </div>
+      <p style="margin-top:20px; font-weight:bold;">Together, we can make a difference!</p>
+    </div>
+
+  </div>
+  <img src="front.jpg" alt="Environmental advocacy hero image">
+</section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <h3>Contact Information</h3>
+    <p>Email: joelahnferrer20@gmail.com</p>
+    <p>Location: Philippines</p>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Student Portfolio Project</p>
+  </div>
+</footer>
+
+<script>
+const toggle = document.getElementById("darkModeToggle");
+
+if (localStorage.getItem("darkMode") === "enabled") {
+  document.body.classList.add("dark");
+  toggle.checked = true;
+}
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "darkMode",
+    document.body.classList.contains("dark") ? "enabled" : "disabled"
+  );
+});
+</script>
+
+</body>
+</html>

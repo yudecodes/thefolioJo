@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About | Environmental Advocacy</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+  font-family: "Times New Roman", serif;
+  font-size: 20px;
+}
+
+h1{ font-size:36px; }
+h2{ font-size:28px; }
+p, li, nav a{ font-size:20px; }
+
+img{
+  display:block;
+  margin:20px auto;
+  max-width:100%;
+}
+
+.quiz-wrapper{
+  display:flex;
+  justify-content:center;
+  margin:60px 0;
+}
+
+.quiz-container{
+  background:white;
+  padding:25px 30px;
+  border-radius:10px;
+  box-shadow:0 0 15px rgba(0,0,0,0.1);
+  width:400px;
+  font-family:Arial, sans-serif;
+}
+
+body.dark .quiz-container{
+  background:#1e1e1e;
+  color:#f5f5f5;
+}
+
+.options{ margin-bottom:20px; }
+
+.option{
+  background:#f4f4f4;
+  border-radius:5px;
+  padding:10px 15px;
+  margin:8px 0;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+body.dark .option{ background:#333; }
+
+.option.selected{
+  background:#d0e7ff;
+  border-color:#007bff;
+}
+
+button{
+  background:#007bff;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+button:disabled{ background:#ccc; }
+
+footer{
+  background:#2e7d32;
+  color:white;
+  text-align:center;
+  padding:30px 20px 15px;
+  margin-top:60px;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.4);
+  margin-top:15px;
+  padding-top:10px;
+  font-size:18px;
+}
+
+/* CENTER HEADER TITLE AND NAVIGATION */
+header {
+  text-align: center; /* Center everything inside header */
+}
+
+header nav {
+  margin-top: 10px; /* Space between title and links */
+}
+
+header nav a {
+  display: inline-block; /* Keep links in a row */
+  margin: 0 15px; /* Space between links */
+}
+</style>
+</head>
+
+<body>
+
+<div class="dark-toggle">
+  <input type="checkbox" id="darkModeToggle">
+  <label for="darkModeToggle" class="toggle-label"></label>
+</div>
+
+<header>
+  <h1>Environmental Advocacy Portfolio</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <h2>Why Environmental Advocacy Matters</h2>
+  <p>
+    Environmental advocacy helps protect ecosystems and future generations by promoting responsible use of natural resources and holding governments and industries accountable. It raises awareness about critical issues such as climate change, pollution, and biodiversity loss, encouraging individuals and communities to take action. Through advocacy, policies can be shaped to support sustainable development, reduce environmental harm, and ensure clean air, water, and land for all.
+  </p>
+  <img src="assets/about1.jpg" alt="">
+</section>
+
+<section>
+  <h2>My Journey</h2>
+  <ol>
+    <li><strong>Learning sustainability basics:</strong> I started by attending workshops, reading articles, and taking online courses about sustainable living and environmental science to understand the principles of sustainability.</li>
+    <li><strong>Participating in cleanups:</strong> I joined local beach and park cleanups, witnessing firsthand the effects of pollution on ecosystems and learning how collective action makes a real difference.</li>
+    <li><strong>Promoting eco-friendly habits:</strong> I encouraged friends, family, and peers to reduce single-use plastics, recycle properly, and conserve water and energy in daily life.</li>
+  </ol>
+  <img src="assets/about2.jpg" alt="">
+</section>
+
+<blockquote style="text-align:center; font-style:italic; margin:40px auto;">
+  "The Earth does not belong to us: we belong to the Earth."
+</blockquote>
+
+<section>
+  <h2 style="text-align:center;">Quick Knowledge Quiz</h2>
+  <div class="quiz-wrapper">
+    <div class="quiz-container">
+      <h2 id="question"></h2>
+      <div class="options" id="options"></div>
+      <button id="submitBtn" disabled>Submit Answer</button>
+      <div id="result"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Contact: joelahnferrer20@gmail.com</p>
+  <p>Location: Philippines</p>
+  <div class="footer-bottom">
+    &copy; 2026 Student Portfolio Project
+  </div>
+</footer>
+
+<script>
+/* DARK MODE */
+const toggle=document.getElementById("darkModeToggle");
+if(localStorage.getItem("darkMode")==="enabled"){
+  document.body.classList.add("dark");
+  toggle.checked=true;
+}
+toggle.addEventListener("change",()=>{
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "darkMode",
+    document.body.classList.contains("dark")?"enabled":"disabled"
+  );
+});
+
+/* QUIZ GAME */
+const quizData=[
+  {
+    question:"Why Environmental Advocacy Matters",
+    options:[
+      "Environmental advocacy helps protect ecosystems and future generations.",
+      "Environmental advocacy exists mainly to increase corporate profits.",
+      "Environmental advocacy focuses only on wildlife and ignores human communities.",
+      "Environmental advocacy is only important for scientists and has no impact on daily life."
+    ],
+    answer:0
+  },
+  {
+    question:"Why is reducing plastic waste important?",
+    options:[
+      "Because plastic disappears naturally in a few days.",
+      "Because plastic pollution harms wildlife and marine ecosystems.",
+      "Because plastic makes the ocean warmer.",
+      "Because plastic increases oxygen in the water."
+    ],
+    answer:1
+  },
+  {
+    question:"What is one major cause of climate change?",
+    options:[
+      "Planting too many trees.",
+      "Using renewable energy sources.",
+      "Burning fossil fuels like coal and oil.",
+      "Recycling paper products."
+    ],
+    answer:2
+  },
+  {
+    question:"Why are forests important to the environment?",
+    options:[
+      "They increase air pollution.",
+      "They remove carbon dioxide and produce oxygen.",
+      "They prevent all natural disasters.",
+      "They stop the Earth from rotating."
+    ],
+    answer:1
+  },
+  {
+    question:"Why is conserving water important?",
+    options:[
+      "Because fresh water is unlimited and never runs out.",
+      "Because conserving water helps protect ecosystems and ensures supply for future generations.",
+      "Because water conservation increases ocean pollution.",
+      "Because using more water improves climate change."
+    ],
+    answer:1
+  }
+];
+
+let currentQuestionIndex=0,selectedOptionIndex=null,score=0;
+const questionEl=document.getElementById("question");
+const optionsEl=document.getElementById("options");
+const submitBtn=document.getElementById("submitBtn");
+const resultEl=document.getElementById("result");
+
+function loadQuestion(){
+  selectedOptionIndex=null;
+  submitBtn.disabled=true;
+  resultEl.textContent="";
+  const q=quizData[currentQuestionIndex];
+  questionEl.textContent=q.question;
+  optionsEl.innerHTML="";
+  q.options.forEach((opt,i)=>{
+    const div=document.createElement("div");
+    div.className="option";
+    div.textContent=opt;
+    div.onclick=()=>selectOption(i,div);
+    optionsEl.appendChild(div);
+  });
+}
+
+function selectOption(i,el){
+  selectedOptionIndex=i;
+  submitBtn.disabled=false;
+  [...optionsEl.children].forEach(o=>o.classList.remove("selected"));
+  el.classList.add("selected");
+}
+
+submitBtn.onclick=()=>{
+  const q=quizData[currentQuestionIndex];
+  if(selectedOptionIndex===q.answer){
+    score++;
+    resultEl.style.color="green";
+    resultEl.textContent="Correct!";
+  }else{
+    resultEl.style.color="red";
+    resultEl.textContent="Wrong! Correct answer: "+q.options[q.answer];
+  }
+  submitBtn.disabled=true;
+  setTimeout(()=>{
+    currentQuestionIndex++;
+    currentQuestionIndex<quizData.length?loadQuestion():showFinalScore();
+  },1500);
+};
+
+function showFinalScore(){
+  questionEl.textContent="Quiz Complete!";
+  optionsEl.innerHTML="";
+  submitBtn.style.display="none";
+  resultEl.style.color="black";
+  resultEl.textContent="Your final score is "+score+" out of "+quizData.length+".";
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>

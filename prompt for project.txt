@@ -1,0 +1,700 @@
+for my new index html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: rgb(226, 165, 213);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .loader-container {
+      text-align: center;
+      color: white;
+    }
+
+    .logo {
+      font-size: 100px;
+      margin-bottom: 30px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Spinner Animation */
+    .spinner {
+      width: 80px;
+      height: 80px;
+      border: 8px solid rgba(255, 255, 255, 0.3);
+      border-top: 8px solid white;
+      border-radius: 50%;
+      margin: 30px auto;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      font-size: 20px;
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .dots {
+      display: inline-block;
+      width: 30px;
+    }
+
+    /* Fade out animation */
+    .fade-out {
+      animation: fadeOut 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader-container">
+    <div class="logo">🤣</div>
+    <h1>Art of Dessert Making</h1>
+    <div class="spinner"></div>
+    <div class="loading-text">
+      Loading<span class="dots" id="dots">...</span>
+    </div>
+  </div>
+
+  <script>
+    // Animate dots
+    let dotCount = 0;
+    const dotsEl = document.getElementById('dots');
+    
+    const dotInterval = setInterval(() => {
+      dotCount = (dotCount + 1) % 4;
+      dotsEl.textContent = '.'.repeat(dotCount);
+    }, 500);
+
+    // Load for 3 seconds then redirect
+    setTimeout(() => {
+      clearInterval(dotInterval);
+      document.querySelector('.loader-container').classList.add('fade-out');
+      
+      // Redirect after fade out
+      setTimeout(() => {
+        window.location.href = 'home.html';
+      }, 500);
+    }, 3000);
+  </script>
+
+</body>
+</html>
+
+for my home html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home | Environmental Advocacy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+
+  <h1>Environmental Advocacy Portfolio</h1>
+  <nav>
+    <a href="home.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <h2>Protecting Nature for Future Generations</h2>
+    <p>This portfolio showcases my passion for environmental advocacy.</p>
+    <ul>
+      <li>Community action</li>
+      <li>Sustainability</li>
+      <li>Environmental education</li>
+    </ul>
+  </div>
+  <img src="assets/hero.jpg" alt="Environmental advocacy hero image">
+</section>
+</main>
+<footer>
+  <p>Contact: joelahnferrer20@gmail.com</p>
+  <p>&copy; 2026 Student Portfolio Project</p>
+</footer>
+
+</body>
+</html>
+
+for the contact html:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact | Environmental Advocacy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+
+  <h1>Environmental Advocacy Portfolio</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+<main>
+<section>
+  <h2>Contact</h2>
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<section>
+  <h2>Resources</h2>
+  <table>
+    <tr><th>Resource</th><th>Description</th></tr>
+    <tr><td>UN Environment</td><td>Global environmental initiatives</td></tr>
+    <tr><td>WWF</td><td>Wildlife conservation</td></tr>
+    <tr><td>Greenpeace</td><td>Environmental campaigns</td></tr>
+  </table>
+</section>
+<section>
+  <h2>Map</h2>
+  <img src="assets/hero.jpg" alt="Map placeholder">
+</section>
+</main>
+<footer>
+  <p>Contact: joelahnferrer20@gmail.com</p>
+  <p>&copy; 2026 Student Portfolio Project</p>
+</footer>
+
+</body>
+</html>
+
+for my about html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About | Environmental Advocacy</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Quiz Game Styles (ADDED) -->
+<style>
+  .quiz-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+  }
+
+  .quiz-container {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 400px;
+    font-family: Arial, sans-serif;
+  }
+
+  .quiz-container h2 {
+    margin-bottom: 15px;
+  }
+
+  .options {
+    margin-bottom: 20px;
+  }
+
+  .option {
+    background: #f4f4f4;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 8px 0;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .option:hover {
+    border-color: #007bff;
+  }
+
+  .option.selected {
+    background: #d0e7ff;
+    border-color: #007bff;
+  }
+
+  button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:disabled {
+    background: #cccccc;
+  }
+
+  #result {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+<header>
+
+
+  <h1>Environmental Advocacy Portfolio</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <h2>Why Environmental Advocacy Matters</h2>
+  <p>Environmental advocacy helps protect ecosystems and future generations.</p>
+  <img src="assets/about1.jpg" alt="Community environmental cleanup">
+</section>
+
+<section>
+  <h2>My Journey</h2>
+  <ol>
+    <li>Learning sustainability basics</li>
+    <li>Participating in cleanups</li>
+    <li>Promoting eco-friendly habits</li>
+  </ol>
+  <img src="assets/about2.jpg" alt="Tree planting activity">
+</section>
+
+<blockquote>
+  "The Earth does not belong to us: we belong to the Earth."
+</blockquote>
+
+<!-- ===== QUIZ GAME ADDED BELOW ===== -->
+<section>
+  <h2>Quick Knowledge Quiz</h2>
+
+  <div class="quiz-wrapper">
+    <div class="quiz-container">
+      <h2 id="question">Question text</h2>
+      <div class="options" id="options"></div>
+      <button id="submitBtn" disabled>Submit Answer</button>
+      <div id="result"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>Contact: joelahnferrer20@gmail.com</p>
+  <p>&copy; 2026 Student Portfolio Project</p>
+</footer>
+
+<!-- Quiz Game Script (ADDED) -->
+<script>
+  const quizData = [
+    {
+      question: "What is the capital of France?",
+      options: ["Paris", "London", "Berlin", "Madrid"],
+      answer: 0
+    },
+    {
+      question: "Which planet is known as the Red Planet?",
+      options: ["Earth", "Mars", "Jupiter", "Venus"],
+      answer: 1
+    },
+    {
+      question: "What is 5 + 7?",
+      options: ["10", "11", "12", "13"],
+      answer: 2
+    },
+    {
+      question: "Who wrote 'Romeo and Juliet'?",
+      options: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Leo Tolstoy"],
+      answer: 1
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  let selectedOptionIndex = null;
+  let score = 0;
+
+  const questionEl = document.getElementById('question');
+  const optionsEl = document.getElementById('options');
+  const submitBtn = document.getElementById('submitBtn');
+  const resultEl = document.getElementById('result');
+
+  function loadQuestion() {
+    selectedOptionIndex = null;
+    submitBtn.disabled = true;
+    resultEl.textContent = '';
+
+    const currentData = quizData[currentQuestionIndex];
+    questionEl.textContent = currentData.question;
+    optionsEl.innerHTML = '';
+
+    currentData.options.forEach((option, index) => {
+      const div = document.createElement('div');
+      div.className = 'option';
+      div.textContent = option;
+      div.addEventListener('click', () => selectOption(index, div));
+      optionsEl.appendChild(div);
+    });
+  }
+
+  function selectOption(index, element) {
+    selectedOptionIndex = index;
+    submitBtn.disabled = false;
+    [...optionsEl.children].forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  submitBtn.addEventListener('click', () => {
+    const currentData = quizData[currentQuestionIndex];
+
+    if (selectedOptionIndex === currentData.answer) {
+      score++;
+      resultEl.style.color = 'green';
+      resultEl.textContent = 'Correct!';
+    } else {
+      resultEl.style.color = 'red';
+      resultEl.textContent = `Wrong! Correct answer: ${currentData.options[currentData.answer]}`;
+    }
+
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+        loadQuestion();
+      } else {
+        showFinalScore();
+      }
+    }, 1500);
+  });
+
+  function showFinalScore() {
+    questionEl.textContent = "Quiz Complete!";
+    optionsEl.innerHTML = '';
+    submitBtn.style.display = 'none';
+    resultEl.style.color = 'black';
+    resultEl.textContent = `Your final score is ${score} out of ${quizData.length}.`;
+  }
+
+  loadQuestion();
+</script>
+
+</body>
+</html>
+
+for register html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Environmental Advocacy</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* ===== MAIN SITE ===== */
+header {
+  background: #2c6e49;
+  padding: 15px;
+  color: white;
+}
+
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+main {
+  padding: 30px;
+}
+
+form input, form select, form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.success {
+  color: green;
+  font-size: 16px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+
+  <h1>Environmental Advocacy Portfolio</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html" class="active">Register</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <h2>Sign Up</h2>
+  <p>Receive updates and opportunities.</p>
+
+  <form id="registrationForm">
+    <input type="text" id="name" placeholder="Full Name">
+    <span id="nameError" class="error"></span>
+
+    <input type="email" id="email" placeholder="Email">
+    <span id="emailError" class="error"></span>
+
+    <input type="password" id="password" placeholder="Password">
+    <span id="passwordError" class="error"></span>
+
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    <span id="confirmPasswordError" class="error"></span>
+
+    <label><input type="checkbox" id="terms"> Agree to terms</label>
+    <span id="termsError" class="error"></span>
+
+    <label>Experience Level:</label>
+    <label><input type="radio" name="level"> Beginner</label>
+    <label><input type="radio" name="level"> Intermediate</label>
+    <label><input type="radio" name="level"> Expert</label>
+
+    <button type="submit">Register</button>
+    <p id="successMessage" class="success"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <p>Contact: joelahnferrer20@gmail.com</p>
+  <p>&copy; 2026 Student Portfolio Project</p>
+</footer>
+
+<script>
+// Form Validation + Success Message
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let valid = true;
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  const terms = document.getElementById("terms").checked;
+
+  document.querySelectorAll(".error").forEach(e => e.textContent = "");
+  document.getElementById("successMessage").textContent = "";
+
+  if (name === "") {
+    document.getElementById("nameError").textContent = "Name is required";
+    valid = false;
+  }
+
+  if (email === "") {
+    document.getElementById("emailError").textContent = "Email is required";
+    valid = false;
+  }
+
+  if (password.length < 8) {
+    document.getElementById("passwordError").textContent =
+      "Password must be at least 8 characters";
+    valid = false;
+  }
+
+  if (password !== confirmPassword) {
+    document.getElementById("confirmPasswordError").textContent =
+      "Passwords do not match";
+    valid = false;
+  }
+
+  if (!terms) {
+    document.getElementById("termsError").textContent =
+      "You must agree to the terms";
+    valid = false;
+  }
+
+  if (valid) {
+    document.getElementById("successMessage").textContent =
+      "✅ Registration successful!";
+    document.getElementById("registrationForm").reset();
+  }
+});
+</script>
+
+</body>
+</html>
+
+and for my style.css:
+
+
+:root {
+  --green:#2e7d32;
+  --light:#f4f7f4;
+  --dark:#1b1b1b;
+  --accent:#81c784;
+}
+* { box-sizing: border-box; }
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height:1.6;
+}
+header, footer {
+  background: var(--green);
+  color:#fff;
+  padding:1rem 2rem;
+}
+header nav a {
+  color:#fff;
+  margin-right:1rem;
+  text-decoration:none;
+}
+header nav a.active {
+  border-bottom:2px solid #fff;
+}
+main { padding:2rem; }
+.hero {
+  display:flex;
+  flex-wrap:wrap;
+  gap:2rem;
+  align-items:center;
+}
+.hero img {
+  max-width:100%;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+section {
+  margin-bottom:2rem;
+  background:#fff;
+  padding:1.5rem;
+  border-radius:8px;
+}
+form {
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+input, textarea, button {
+  padding:.6rem;
+  font-size:1rem;
+}
+button {
+  background: var(--green);
+  color:#fff;
+  border:none;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+th, td {
+  border:1px solid #ccc;
+  padding:.5rem;
+}
+@media (max-width:768px) {
+  .hero { flex-direction:column; }
+}
+
+
+as i given the codes, i want you to add the dark mode option for all of the codes given and add an toggle bar for darkmode option in upper left side so its good, give me the separate codes for newindex, about, index, register, and home. also add of course the style.css, put the dark mode please
