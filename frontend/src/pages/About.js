@@ -75,7 +75,7 @@ const About = () => {
           </div>
           <div className="card" style={{ padding: '0', overflow: 'hidden' }}>
             <img
-              src={`${process.env.PUBLIC_URL}/assets/about1.jpg`}
+              src={`${process.env.REACT_APP_BACKEND_URL}/assets/about1.jpg`}
               alt="Environmental impact"
               style={{ width: '100%', height: '220px', objectFit: 'cover', display: 'block' }}
             />
@@ -114,7 +114,7 @@ const About = () => {
 
           <div className="card" style={{ padding: '0', overflow: 'hidden' }}>
             <img
-              src={`${process.env.PUBLIC_URL}/assets/about2.jpg`}
+              src={`${process.env.REACT_APP_BACKEND_URL}/assets/about2.jpg`}
               alt="My journey"
               style={{ width: '100%', height: '220px', objectFit: 'cover', display: 'block' }}
             />
