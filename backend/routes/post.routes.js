@@ -8,7 +8,7 @@ const upload  = require('../middleware/upload');
 const router = express.Router();
 
 // ── GET /api/posts ─────────────────────────────────────────────
-router.get('/', protect, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
     const posts = await Post.find()
       .populate('author', 'name profilePic role')
