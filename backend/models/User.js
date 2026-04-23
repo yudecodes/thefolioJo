@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
     bio: { type: String, default: '' },
     profilePic: { type: String, default: '' },
     birthday: { type: Date },                    
-    gender: { type: String, enum: ['male', 'female', 'other'] },
+    gender: { type: String, enum: ['Male', 'Female', 'Other'] },
   },
   { timestamps: true }
 );
