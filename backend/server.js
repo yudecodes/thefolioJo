@@ -15,7 +15,7 @@ const app = express();
 connectDB();
 
 // ── Middleware ─────────────────────────────────────────────────
-app.use(cors({ origin: ['http://localhost:3000', 'https://thefolio-jo.vercel.app/'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://thefolio-jo.vercel.app'], credentials: true }));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
