@@ -62,7 +62,7 @@ const Home = () => {
         </p>
 
         <div className="hero-bottom-img">
-          <img src={`${process.env.REACT_APP_BACKEND_URL}/assets/front.jpg`} alt="Environmental impact" />
+          <img src={`${process.env.REACT_APP_BACKEND_URL.replace('/api', '')}/assets/front.jpg`} alt="Environmental impact" />
           <div className="img-overlay" />
           <div className="img-caption">
             <p>"The Earth does not belong to us — we belong to the Earth."</p>
